@@ -26,10 +26,10 @@ const carSchema = mongoose.Schema({
         required:true
     }, 
     price: {
-        type:Number,
+        type:String,
         required:true
     }, 
-    importFile: {
+    file: {
         type:String,
         required:true
     }, 
