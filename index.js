@@ -19,15 +19,15 @@ app.use(express.static(path.join(__dirname,'/public')));
 app.use( require('./routes/car'));
 
 // Read the host address and the port from the environment
-const hostname = process.env.HOST_DB;
-const port = process.env.PORT_DB;
+// const hostname = process.env.HOST_DB;
+const port = process.env.PORT_DB || 9000;
 
 
-app.listen(port,hostname, (err) =>{
+app.listen(port,(err) =>{
     if(err){
         console.log(`Was an error ${err}`);
     }else{
-        console.log(`Server running http://${hostname}:${port}/`);
+        console.log(`Server running :${port}/`);
     }
     
 })

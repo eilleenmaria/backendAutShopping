@@ -39,10 +39,10 @@ router.delete('/delete/:id', async(req,res) =>{
         await Car.findOneAndRemove({_id: req.params.id})
         res.json({msg:'Car removed successfully'});
 })
-router.put('/update/:id', uploader, async(req, res) =>{
+router.put('/update/:id', async(req, res) =>{
    
     try{
-        const {name, brand, model, category, characteristics, motor, price,file} = req.body 
+        const {name, brand, model, category, characteristics, motor, price} = req.body 
         // const {file} =req.params.file
         let car = await Car.findById(req.params.id);
             if(!car){
@@ -55,7 +55,7 @@ router.put('/update/:id', uploader, async(req, res) =>{
             car.characteristics = characteristics,
             car.motor = motor,
             car.price = price,
-            car.file = file
+            // car.file = file
     
             car = await Car.findByIdAndUpdate({_id: req.params.id}, car, {new:true})
             res.json(car);
